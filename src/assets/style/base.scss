@@ -1,0 +1,174 @@
+@import 'variable';
+// 优化显示
+
+html, body {
+  margin: 0;
+  height: 100%;
+  font-family: "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+[v-cloak] {
+  display: none
+}
+
+textarea::-webkit-input-placeholder,
+input::-webkit-input-placeholder {
+  color: #aaa;
+}
+
+a[href] {
+  color: #{$color-primary};
+}
+
+
+// 工具类名统一前缀
+$prefix: ui;
+
+// 禁止用户选中 鼠标变为手形
+%unable-select {
+  user-select: none;
+  cursor: pointer;
+}
+
+// 填满父元素
+// 组要父元素 position: relative | absolute;
+%full {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+// flex 垂直水平居中
+%flex-center-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+%flex-center-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+// 将元素模拟成卡片外观
+%card {
+  border: 1px solid #e9eaec;
+  background: #fff;
+  border-radius: 4px;
+  font-size: 14px;
+  position: relative;
+}
+
+// 在这里写公用的class
+// 注意 这个文件里只写class
+// mixin等内容请在 public.scss 里书写
+
+// 文字相关
+.#{$prefix}-text-center {
+  text-align: center;
+}
+
+// 浮动相关
+.#{$prefix}-fl {
+  float: left;
+}
+
+.#{$prefix}-fr {
+  float: right;
+}
+
+.#{$prefix}-clearfix:before,
+.#{$prefix}-clearfix:after {
+  display: table;
+  content: "";
+}
+
+.#{$prefix}-clearfix:after {
+  clear: both
+}
+
+// 边距相关
+$sizes: (0, 5, 10, 15, 20);
+
+@for $index from 1 to 6 {
+  .#{$prefix}-m-#{nth($sizes, $index)} {
+    margin: #{nth($sizes, $index)}px !important;
+  }
+  .#{$prefix}-mt-#{nth($sizes, $index)} {
+    margin-top: #{nth($sizes, $index)}px !important;
+  }
+  .#{$prefix}-mr-#{nth($sizes, $index)} {
+    margin-right: #{nth($sizes, $index)}px !important;
+  }
+  .#{$prefix}-mb-#{nth($sizes, $index)} {
+    margin-bottom: #{nth($sizes, $index)}px !important;
+  }
+  .#{$prefix}-ml-#{nth($sizes, $index)} {
+    margin-left: #{nth($sizes, $index)}px !important;
+  }
+
+  .#{$prefix}-p-#{nth($sizes, $index)} {
+    padding: #{nth($sizes, $index)}px !important;
+  }
+  .#{$prefix}-pt-#{nth($sizes, $index)} {
+    padding-top: #{nth($sizes, $index)}px !important;
+  }
+  .#{$prefix}-pr-#{nth($sizes, $index)} {
+    padding-right: #{nth($sizes, $index)}px !important;
+  }
+  .#{$prefix}-pb-#{nth($sizes, $index)} {
+    padding-bottom: #{nth($sizes, $index)}px !important;
+  }
+  .#{$prefix}-pl-#{nth($sizes, $index)} {
+    padding-left: #{nth($sizes, $index)}px !important;
+  }
+}
+
+// 快速使用
+
+.#{$prefix}-m {
+  margin: 20px !important;
+}
+
+.#{$prefix}-mt {
+  margin-top: 20px !important;
+}
+
+.#{$prefix}-mr {
+  margin-right: 20px !important;
+}
+
+.#{$prefix}-mb {
+  margin-bottom: 20px !important;
+}
+
+.#{$prefix}-ml {
+  margin-left: 20px !important;
+}
+
+.#{$prefix}-p {
+  padding: 20px !important;
+}
+
+.#{$prefix}-pt {
+  padding-top: 20px !important;
+}
+
+.#{$prefix}-pr {
+  padding-right: 20px !important;
+}
+
+.#{$prefix}-pb {
+  padding-bottom: 20px !important;
+}
+
+.#{$prefix}-pl {
+  padding-left: 20px !important;
+}

@@ -1,0 +1,398 @@
+// 补丁 base
+@import 'variable';
+@import './base.scss';
+@import './vue-transition.scss';
+
+#app {
+  background-color: #fff;
+  overflow-x: hidden;
+  @extend %full;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.aspectration {
+  position: relative; /*因为容器所有子元素需要绝对定位*/
+  height: 0; /*容器高度是由padding来控制，盒模型原理告诉你一切*/
+  width: 100%;
+}
+
+.aspectration[data-ratio="4:3"] {
+  padding-top: 75%;
+}
+
+.aspectration > * {
+  position: absolute;
+}
+
+.page-loading {
+  margin: 44px auto 0;
+}
+
+.no-result {
+  border-radius: 4px;
+  padding: 0;
+  margin: 10px;
+  text-align: center;
+  background-color: #fff;
+  color: #333;
+  line-height: 40px;
+  font-size: 14px;
+}
+
+.no-more {
+  font-size: 12px;
+  padding: 0;
+  margin: 10px;
+  line-height: 40px;
+  text-align: center;
+  color: #999;
+
+}
+
+.page-flex {
+  @extend %full;
+  display: flex;
+  flex-direction: column;
+
+  .page-container {
+    flex: 1;
+    padding-bottom: 50px;
+    overflow-y: auto;
+    //scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+.van-modal {
+  background-color: rgba(0, 0, 0, .5);
+}
+
+.m-book-list {
+  .book-item {
+    position: relative;
+    display: flex;
+    margin: 20px 16px;
+
+    .cover {
+      width: 70px;
+
+      img {
+        display: block;
+        width: 70px;
+        height: 96px;
+      }
+    }
+
+    .content {
+      padding: 0 10px;
+
+      .title {
+        display: block;
+        font-size: 14px;
+        color: #000;
+        margin-bottom: 6px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+
+      .meta {
+        font-size: 12px;
+        color: #999;
+        margin-bottom: 2px;
+      }
+    }
+
+    .controls {
+      position: absolute;
+      right: 0;
+      left: 80px;
+      bottom: 0;
+      line-height: 30px;
+
+      .status {
+        float: left;
+        display: none;
+
+        i {
+          position: relative;
+          top: 2px;
+          margin-right: 5px;
+        }
+      }
+
+      .cart {
+        float: left;
+      }
+
+      .detail {
+        float: right;
+        font-size: 12px;
+        color: #555;
+
+        i {
+          font-size: 14px;
+          vertical-align: -3px;
+          margin-right: 2px;
+        }
+      }
+
+      .play {
+        display: block;
+        float: right;
+        margin-left: 16px;
+        padding: 0 10px;
+        height: 30px;
+        border-radius: 15px;
+        background-color: #{$color-gray-1};
+        color: #{$color-primary};
+        font-size: 12px;
+
+        i {
+          margin-right: 2px;
+          font-size: 16px;
+          vertical-align: -4px;
+        }
+      }
+    }
+
+    &.playing {
+      .content {
+        .title {
+          color: #{$color-primary};
+        }
+      }
+    }
+
+    &.active {
+      color: #999;
+
+      .cover img {
+        -webkit-filter: grayscale(100%);
+        filter: grayscale(100%);
+      }
+
+      .content .title,
+      .controls .play {
+        color: #999;
+      }
+
+      .controls .status {
+        display: block;
+      }
+
+    }
+  }
+}
+
+.m-course-content-list {
+  @extend .m-book-list;
+
+  .book-item {
+    display: block;
+    margin: 0 16px;
+    padding: 16px 0;
+
+    .content {
+      display: block;
+      padding: 0;
+
+      .title {
+        margin-bottom: 24px;
+      }
+    }
+
+    .controls {
+      bottom: 12px;
+    }
+  }
+}
+
+.course-list-title {
+  margin: 16px 16px 10px;
+  font-size: 16px;
+  color: #000;
+}
+
+.m-course-list {
+  padding: 0 10px;
+
+  &:after {
+    display: block;
+    visibility: hidden;
+    clear: both;
+    height: 0;
+    content: " ";
+    font-size: 0;
+  }
+
+  .course-item {
+    float: left;
+    display: inline;
+    margin: 10px;
+    width: 157.5px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    border-radius: 4px;
+
+    .cover {
+      width: 100%;
+      height: 120px;
+      background: no-repeat 50% 50%;
+      background-size: cover;
+    }
+
+    .content {
+      height: 60px;
+      padding: 10px;
+
+      .title {
+        display: block;
+        font-size: 13px;
+        color: #000;
+        margin-bottom: 6px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+
+      .meta {
+        font-size: 12px;
+        color: #999;
+        margin-bottom: 2px;
+      }
+    }
+  }
+}
+
+.m-search-bar {
+  .search-panel {
+    position: absolute;
+    top: 44px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #{$color-bg};
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  &.active {
+    position: fixed;
+    z-index: 200;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  .search-history {
+    li {
+      position: relative;
+      line-height: 34px;
+      margin: 0 10px;
+      padding: 0 64px 0 10px;
+      font-size: 12px;
+      color: #333;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+
+      i {
+        position: absolute;
+        right: 10px;
+        top: 11px;
+      }
+    }
+
+    .clear {
+      line-height: 44px;
+      color: #{$color-primary};
+      text-align: center;
+    }
+  }
+}
+
+.m-books-filter-panel {
+  position: relative;
+  background-color: #{$color-gray-2};
+  padding: 4px 16px 8px;
+  line-height: 27px;
+  height: 26px;
+  color: #333;
+
+  .time-filter {
+    display: inline-block;
+    padding: 0 10px;
+    background-color: #fff;
+    border-radius: 4px;
+
+    i {
+      position: relative;
+      top: 2px;
+    }
+  }
+
+  .play-btn {
+    display: inline-block;
+    float: right;
+
+    i {
+      position: relative;
+      top: 2px;
+    }
+  }
+
+  .options-time {
+    background-color: #{$color-gray-2};
+    position: absolute;
+    top: 38px;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    padding: 6px 16px 4px;
+
+    span {
+      display: inline-block;
+      padding: 0 10px;
+      height: 28px;
+      line-height: 28px;
+      border-radius: 4px;
+      margin: 0 8px 8px 0;
+      background-color: #fff;
+    }
+  }
+}
+
+.m-course-filter-panel {
+  @extend .m-books-filter-panel;
+  padding: 8px 16px;
+
+  .sort {
+    float: right;
+    color: #555;
+
+    i {
+      position: relative;
+      top: 1px;
+      font-size: 13px;
+      margin-right: 4px;
+    }
+  }
+}
+
+.van-search {
+  //background-color: #fc6b21 !important;
+
+  .van-search__action {
+    //color: #fff;
+  }
+}
+
+.van-nav-bar .van-icon {
+  color: #666;
+}
+
