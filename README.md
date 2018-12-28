@@ -49,7 +49,7 @@ npm run dev
 ## 效果演示
 [传送门](https://book-player-preview.leanapp.cn/)
 
-## 下载
+## Android App 下载
 ![二维码](https://ws3.sinaimg.cn/large/006tNbRwgy1fym9fxlh8ej309y0a0aa3.jpg)
 
 ## 总结
