@@ -1,0 +1,50 @@
+{
+  "results": [
+    {
+      "name": "得到",
+      "ACL": {
+        "*": {
+          "read": true,
+          "write": false
+        }
+      },
+      "createdAt": "2018-12-18T03:38:38.575Z",
+      "updatedAt": "2018-12-18T03:38:38.575Z",
+      "objectId": "5c186bbe303f39005f0cba72"
+    },
+    {
+      "name": "专栏",
+      "ACL": {
+        "*": {
+          "read": true,
+          "write": false
+        }
+      },
+      "createdAt": "2018-12-18T03:39:03.500Z",
+      "updatedAt": "2018-12-18T03:39:31.474Z",
+      "parent": {
+        "__type": "Pointer",
+        "className": "CourseCategory",
+        "objectId": "5c186bbe303f39005f0cba72"
+      },
+      "objectId": "5c186bd79f54540066468204"
+    },
+    {
+      "name": "大师课",
+      "ACL": {
+        "*": {
+          "read": true,
+          "write": false
+        }
+      },
+      "createdAt": "2018-12-20T14:09:41.290Z",
+      "updatedAt": "2018-12-20T14:09:52.346Z",
+      "parent": {
+        "__type": "Pointer",
+        "className": "CourseCategory",
+        "objectId": "5c186bbe303f39005f0cba72"
+      },
+      "objectId": "5c1ba2a5808ca400732ed915"
+    }
+  ]
+}

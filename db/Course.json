@@ -1,0 +1,48 @@
+{
+  "results": [
+    {
+      "category": {
+        "__type": "Pointer",
+        "className": "CourseCategory",
+        "objectId": "5c186bd79f54540066468204"
+      },
+      "slogan": "每日深谈，像时代领航者一样思考",
+      "updatedAt": "2018-12-20T07:15:42.709Z",
+      "ACL": {
+        "*": {
+          "read": true,
+          "write": false
+        }
+      },
+      "name": "吴军·硅谷来信",
+      "objectId": "5c186c849f545404748cf150",
+      "cover": "\/吴军·硅谷来信\/cover.jpg",
+      "createdAt": "2018-12-18T03:41:56.046Z",
+      "author": "吴军",
+      "status": "已完结",
+      "courseContentTotal": 375
+    },
+    {
+      "category": {
+        "__type": "Pointer",
+        "className": "CourseCategory",
+        "objectId": "5c1ba2a5808ca400732ed915"
+      },
+      "slogan": "实现人生突破的系统方法",
+      "updatedAt": "2018-12-20T14:11:03.743Z",
+      "ACL": {
+        "*": {
+          "read": true,
+          "write": false
+        }
+      },
+      "name": "陈海贤·自我发展心理学",
+      "objectId": "5c1ba22567f356005fcf494d",
+      "cover": "\/陈海贤·自我发展心理学\/cover.jpg",
+      "createdAt": "2018-12-20T14:07:33.920Z",
+      "author": "陈海贤",
+      "status": "已完结",
+      "courseContentTotal": 52
+    }
+  ]
+}
